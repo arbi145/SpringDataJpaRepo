@@ -54,6 +54,32 @@
 			<version>3.0.0</version>
 		</dependency>
 
+                  <dependency>
+    <groupId>org.jacoco</groupId> 
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.6</version>
+        </dependency> 
+
+               <dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-junit-jupiter</artifactId>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+  <groupId>junit</groupId>
+  <artifactId>junit</artifactId>
+  <version>4.12</version>
+  <scope>test</scope>
+</dependency>
+
+ <dependency>
+        <groupId>org.junit.vintage</groupId>
+        <artifactId>junit-vintage-engine</artifactId>
+        <version>5.4.0</version>
+        <scope>test</scope>
+    </dependency>
+
 	</dependencies>
 
 	<build>
@@ -70,6 +96,13 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
+                     <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+            </plugin>
+
 		</plugins>
 	</build>
 
