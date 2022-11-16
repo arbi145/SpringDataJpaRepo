@@ -23,8 +23,8 @@ pipeline {
         stage('checkout GIT') {
             steps{
                 echo 'Pulling ... ';
-            git branch:'karim_chakroun' ,
-            url : 'https://github.com/OussemaAbderrahmen/SpringFinalAchat.git';
+            git branch:'haitham-othmani' ,
+            url : 'https://github.com/arbi145/SpringDataJpaRepo.git';
             }
         }
         stage("Mvn clean") {
@@ -62,18 +62,18 @@ pipeline {
         }
         stage("Building Docker Image") {
                 steps{
-                    sh 'docker build -t karim369/achat .'
+                    sh 'docker build -t haitham124/achat .'
                 }
         }
         stage("Login to DockerHub") {
                 steps{
                 
-                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u karim369 -p 8cfa1afuck'
+                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u haitham124 -p Othmani@123'
                 }
         }
         stage("Push to DockerHub") {
                 steps{
-                    sh 'docker push karim369/achat'
+                    sh 'docker push haitham124/achat'
                 }
         }
         
