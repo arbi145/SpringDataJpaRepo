@@ -52,7 +52,7 @@ pipeline {
         sh "mvn sonar:sonar \
   -Dsonar.projectKey=sonarqube \
   -Dsonar.host.url=http://192.168.122.1:9000 \
-  -Dsonar.login=eaf1b0f65cca8542dfa740fbfda27ba454b7bf2f"
+  -Dsonar.login=75d666c6ce55cba14a138da43c1be3b32efcf72d"
       }
     }
     stage("DEPLOY with Nexus") {
