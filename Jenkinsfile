@@ -5,7 +5,7 @@ pipeline {
     
     environment {
         
-        registry = "karim369/8cfa1afuck"
+        registry = "haitham124/Othmani@123"
         //registryCredential = 'dockerHub'
         //dockerImage = ''
         NEXUS_VERSION = "nexus3"
