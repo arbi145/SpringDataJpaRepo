@@ -92,7 +92,9 @@
 	</dependencies>
 
 	<build>
-	<plugin>
+	
+		<plugins>
+		<plugin>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
             <version>0.7.0.201403182114</version>
@@ -107,7 +109,6 @@
                 <destFile>${sonar.jacoco.reportPath}</destFile>
             </configuration>
         </plugin>
-		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
