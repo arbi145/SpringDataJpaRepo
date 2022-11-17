@@ -1,26 +1,23 @@
-version: '2'
-
+version: '3.3'
 services:
   mysqldb:
-    container_name: mysqldb
-    image: mysql/mysql-server
-    restart: unless-stopped
+    image: 'mysql'
     environment:
-      MY_SQL_PASSWORD: root
-    volumes:
-      - /home/mysql/data:/var/lib/mysql
-
-  springboot:
-     image: farahbgdh/projetdevopsimage
-     container_name: devopsprojectfinal
-     restart: on-failure
-     ports:
-      - 8089:8089
-     depends_on:
-      - mysqldb
-  angular:
-    container_name: dockercomposeangular
-    image: dockercomposeangular
-    restart: on-failure
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=
+      - MYSQL_DATABASE=achatdb
     ports:
-     - 4200:4200
+      - "3307:3306"
+  springboot-docker-container:
+    image: farahbgdh/achat
+    ports:
+      - "8089:8089"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://achadb:3306/achatdb?createDatabaseifNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: ""
+    build:
+      context: "./"
+      dockerfile: "Dockerfile"
+    depends_on:
+      - mysqldb

@@ -16,6 +16,14 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+		
+            <!--Sonar -->
+            <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+            <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+            
+
+        
 	</properties>
 	<dependencies>
 		<dependency>
@@ -57,7 +65,7 @@
                   <dependency>
     <groupId>org.jacoco</groupId> 
     <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.8.6</version>
+    <version>0.8.3</version>
         </dependency> 
 
                <dependency>
@@ -84,7 +92,9 @@
 	</dependencies>
 
 	<build>
+	
 		<plugins>
+		
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -106,5 +116,11 @@
 
 		</plugins>
 	</build>
-
+  <distributionManagement>
+    <repository>
+      <id>deploymentRepo</id>
+      <name>Nexus Repository</name>
+      <url>http://192.168.0.17:8081/repository/maven-snapshots/</url>
+    </repository>
+ </distributionManagement>
 </project>
